@@ -23,7 +23,10 @@ function Header() {
                 {isSignedIn ? (
                     <div className='flex items-center gap-4'>
                         <Link to="/dashboard">
-                            <Button variant="ghost" className='font-medium'>
+                            <Button 
+                                variant="outline" 
+                                className='border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all font-semibold'
+                            >
                                 Dashboard
                             </Button>
                         </Link>
@@ -32,7 +35,18 @@ function Header() {
                                 <p className='text-sm font-medium text-gray-900'>{user?.fullName}</p>
                                 <p className='text-xs text-gray-500'>{user?.primaryEmailAddress?.emailAddress}</p>
                             </div>
-                            <UserButton afterSignOutUrl="/" />
+                            <UserButton 
+                                afterSignOutUrl="/"
+                                appearance={{
+                                    elements: {
+                                        avatarBox: "w-10 h-10",
+                                        userButtonPopoverCard: "shadow-xl border border-gray-200",
+                                        userButtonPopoverActionButton: "hover:bg-gray-100",
+                                        userButtonPopoverActionButtonText: "text-gray-700",
+                                        userButtonPopoverActionButtonIcon: "text-gray-600"
+                                    }
+                                }}
+                            />
                         </div>
                     </div>
                 ) : (

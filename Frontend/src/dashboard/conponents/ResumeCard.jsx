@@ -85,26 +85,28 @@ function ResumeCard({ resume, refreshData }) {
                 </div>
                 
                 <DropdownMenu>
-                    <DropdownMenuTrigger className='p-2 hover:bg-gray-100 rounded-lg transition-colors'>
-                        <MoreVertical className='w-5 h-5 text-gray-600' />
+                    <DropdownMenuTrigger asChild>
+                        <button className='p-2 hover:bg-gray-100 rounded-lg transition-colors outline-none focus:outline-none border-none bg-transparent'>
+                            <MoreVertical className='w-5 h-5 text-gray-600' />
+                        </button>
                     </DropdownMenuTrigger>
-                    <DropdownMenuContent align="end" className="w-48">
+                    <DropdownMenuContent align="end" className="w-48 bg-white border border-gray-200 shadow-lg">
                         <DropdownMenuItem 
-                            className='cursor-pointer flex items-center gap-2' 
+                            className='cursor-pointer flex items-center gap-2 hover:bg-gray-100 focus:bg-gray-100' 
                             onClick={() => navigate(`/dashboard/resume/${resume.documentId}/edit`)}
                         >
                             <Edit className="w-4 h-4" />
                             Edit Resume
                         </DropdownMenuItem>
                         <DropdownMenuItem 
-                            className='cursor-pointer flex items-center gap-2' 
+                            className='cursor-pointer flex items-center gap-2 hover:bg-gray-100 focus:bg-gray-100' 
                             onClick={() => navigate(`/my-resume/${resume.documentId}/view`)}
                         >
                             <Eye className="w-4 h-4" />
                             View Resume
                         </DropdownMenuItem>
                         <DropdownMenuItem 
-                            className='cursor-pointer flex items-center gap-2' 
+                            className='cursor-pointer flex items-center gap-2 hover:bg-gray-100 focus:bg-gray-100' 
                             onClick={() => navigate(`/my-resume/${resume.documentId}/view`)}
                         >
                             <Download className="w-4 h-4" />
@@ -112,7 +114,7 @@ function ResumeCard({ resume, refreshData }) {
                         </DropdownMenuItem>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem 
-                            className='cursor-pointer flex items-center gap-2 text-red-600 focus:text-red-600' 
+                            className='cursor-pointer flex items-center gap-2 text-red-600 hover:bg-red-50 focus:bg-red-50 focus:text-red-600' 
                             onClick={() => setOpen(true)}
                         >
                             <Trash2 className="w-4 h-4" />

@@ -4,7 +4,8 @@ import { useUser } from '@clerk/clerk-react'
 import Global from '../../service/Global'
 import { useEffect, useState } from 'react'
 import ResumeCard from './conponents/ResumeCard'
-import { FileText } from 'lucide-react'
+import { FileText, ExternalLink } from 'lucide-react'
+import { Button } from '@/components/ui/button'
 
 function DashboardPage() {
     const { user } = useUser()
@@ -35,6 +36,36 @@ function DashboardPage() {
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
             <div className="container mx-auto p-6 md:p-10 lg:px-20">
+                {/* Resume Analyzer Banner */}
+                <div className='mb-8'>
+                    <div className='bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all'>
+                        <div className='flex flex-col md:flex-row items-center justify-between gap-4'>
+                            <div className='text-white flex-1'>
+                                <h3 className='text-2xl font-bold mb-2 flex items-center gap-2'>
+                                    <FileText className='w-6 h-6' />
+                                    AI Resume Analyzer
+                                </h3>
+                                <p className='text-blue-100 text-sm md:text-base'>
+                                    Get detailed resume analysis, ATS compatibility score, and personalized improvement suggestions based on job descriptions
+                                </p>
+                            </div>
+                            <a 
+                                href='https://resume-analyzer-major.streamlit.app/' 
+                                target='_blank' 
+                                rel='noopener noreferrer'
+                            >
+                                <Button 
+                                    size='lg'
+                                    className='bg-white text-purple-600 hover:bg-gray-100 font-semibold shadow-lg hover:shadow-xl transition-all h-12 px-8'
+                                >
+                                    Analyze Resume
+                                    <ExternalLink className='w-4 h-4 ml-2' />
+                                </Button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
                 {/* Header Section */}
                 <div className="mb-10">
                     <div className="flex items-center gap-3 mb-3">
